@@ -34,10 +34,10 @@ HOST = 'http://flickr.com'
 API = '/services/rest'
 
 # set these here or using flickr.API_KEY in your application
-API_KEY = ''
-API_SECRET = ''
-email = None
-password = None
+API_KEY = '295f2645ba8882eee9f46e70fae3c1c1'
+API_SECRET = 'fb96af821837f796'
+email = 'mrlittlezhu@gmail.com'
+password = '8167398890'
 AUTH = False
 debug = False
 
@@ -295,11 +295,11 @@ class Photo(object):
         """Retrieves EXIF metadata for the photo.
 
         Example usage:
-        
-            >>> exif = photo.getExif()
-            >>> print exif.camera
-            >>> for t in exif.tags:
-            ...    print '%s: %s' % (t.label, t.raw)
+            #
+            # >>> exif = photo.getExif()
+            # >>> print exif.camera
+            # >>> for t in exif.tags:
+            # ...    print '%s: %s' % (t.label, t.raw)
 
         """
         return Exif.getExif(self.id)

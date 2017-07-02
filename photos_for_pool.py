@@ -53,47 +53,33 @@ def getPhotoURLs(groupid, size, number, equal=False):
     return urls
     
 
-def main(*argv):
+def main(group, max_num, save_path):
     from getopt import getopt, GetoptError
-
-    try:
-        (opts, args) = getopt(argv[1:],\
-                              'ves:n:',\
-                              ['verbose', 'size', 'equal', 'number'])
-    except GetoptError, e:
-        print e
-        print __doc__
-        return 1
 
     size = 'Medium'
     equal = False
-    number = 100
-    
-    for o, a in opts:
-        if o in ('-s' , '--size'):
-            size = a.capitalize()
-        elif o in ('-e', '--equal'):
-            equal = True
-        elif o in ('-v', '--verbose'):
-            verbose = True
-        elif o in ('-n', '--number'):
-            number = a
-        else:
-            print "Unknown argument: %s" % o
-            print __doc__
-            return 1
-        
-    if len(args) == 0:
+    number = max_num
+
+
+    if len(group) == 0:
         print "You must specify a group"
         print __doc__
         return 1
     
-    groupid = args[0]
+    groupid = group
     
     urls = getPhotoURLs(groupid, size, number, equal)
 
+    count = 0
+    tmp = []
     for url in urls:
-        print url
+        count += 1
+        tmp.append(('%d ' % count) + url + '\n')
+        print
+    file(save_path, "w").writelines(tmp)
         
 if __name__ == '__main__':
-    sys.exit(main(*sys.argv))
+    save_path = 'fileList.txt'
+    max_count = 100
+    group_id = "1049373@N23"
+    main(group_id, max_count, save_path)
