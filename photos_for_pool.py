@@ -80,6 +80,7 @@ def main(group, max_num, save_path):
         
 if __name__ == '__main__':
     save_path = 'fileList.txt'
-    max_count = 100
-    group_id = "1049373@N23"
-    main(group_id, max_count, save_path)
+    max_count = 3000
+    group_id = ["1049373@N23","1430965@N20","2750200@N22","29496069@N00","58146428@N00","78663584@N00"]
+    for group in group_id:
+        main(group, max_count, group+".txt")
