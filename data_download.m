@@ -14,6 +14,9 @@ end
 for i=1:length(imgs_names)
     disp(['download image # ' imgs_names{i}(1:9) '£º' imgs_names{i}(11:end)]);
     %try
+    if exist([data_folder '/' imgs_names{i}(1:9)], 'file')
+        continue;
+    end
     urlwrite(imgs_names{i}(11:end),[data_folder '/' imgs_names{i}(1:9)]);
     %end
 end
