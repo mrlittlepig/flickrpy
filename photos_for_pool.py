@@ -57,7 +57,7 @@ def getPhotoURLs(groupid, size, number, equal=False):
 def main(group, max_num, save_path):
     from getopt import getopt, GetoptError
 
-    size = 'Medium'
+    size = 'Large'
     equal = False
     number = max_num
 
@@ -75,13 +75,13 @@ def main(group, max_num, save_path):
     tmp = []
     for url in urls:
         count += 1
-        tmp.append(('%05d.%s ' % (count, url.spilt('.')[-1])) + url + '\n')
+        tmp.append(url + '\n')
     file(save_path, "w").writelines(tmp)
         
 if __name__ == '__main__':
     if not os.path.exists('data'):
         os.mkdir('data')
-    max_count = 3000
+    max_count = 1000
     group_id = ["1049373@N23","1430965@N20","2750200@N22","29496069@N00","58146428@N00","78663584@N00"]
     for group in group_id:
         main(group, max_count, "data/"+group+".txt")

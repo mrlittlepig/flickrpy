@@ -1,5 +1,5 @@
 % download data
-urls = '1049373@N23.txt';
+urls = 'filelist.txt';
 imgs_names = textread(urls,'%s','delimiter','\n','whitespace','');
 
 data_folder = 'images_data';
@@ -7,15 +7,21 @@ if ~exist(data_folder,'dir')
     mkdir(data_folder);
 end
 
-if ~exist(data_folder+)
 
 % if ~exist([data_folder '_crop_'],'dir')
 %    mkdir([data_folder '_crop_']) 
 % end
 for i=1:length(imgs_names)
-    disp(['download image # ' imgs_names{i} '£º' imgs_names{i}(11:end)]);
+    disp(['download image # ' imgs_names{i}(1:9) ':' imgs_names{i}(11:end)]);
     %try
-    urlwrite(imgs_names{i}(11:end),[data_folder '/' imgs_names{i}(1:9)]);
+    if exist([data_folder '/' imgs_names{i}(1:9)], 'file')
+        continue;
+    end
+    try
+        urlwrite(imgs_names{i}(11:end),[data_folder '/' imgs_names{i}(1:9)]);
+    catch
+        urlwrite(imgs_names{i}(11:end),[data_folder '/' imgs_names{i}(1:9)]);
+    end
     %end
 end
 
