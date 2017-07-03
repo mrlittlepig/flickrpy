@@ -20,6 +20,7 @@ __copyright__ = "Copyright 2004-5 James Clarke"
 import sys
 import urllib
 import flickr
+import os
 
 verbose = False
 
@@ -78,8 +79,9 @@ def main(group, max_num, save_path):
     file(save_path, "w").writelines(tmp)
         
 if __name__ == '__main__':
-    save_path = 'fileList.txt'
+    if not os.path.exists('data'):
+        os.mkdir('data')
     max_count = 3000
     group_id = ["1049373@N23","1430965@N20","2750200@N22","29496069@N00","58146428@N00","78663584@N00"]
     for group in group_id:
-        main(group, max_count, group+".txt")
+        main(group, max_count, "data/"+group+".txt")
