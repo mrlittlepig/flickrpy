@@ -74,8 +74,7 @@ def main(group, max_num, save_path):
     tmp = []
     for url in urls:
         count += 1
-        tmp.append(('%d ' % count) + url + '\n')
-        print
+        tmp.append(('%05d.%s ' % (count, url.spilt('.')[-1])) + url + '\n')
     file(save_path, "w").writelines(tmp)
         
 if __name__ == '__main__':
