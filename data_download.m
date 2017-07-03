@@ -12,7 +12,7 @@ end
 %    mkdir([data_folder '_crop_']) 
 % end
 for i=1:length(imgs_names)
-    disp(['download image # ' imgs_names{i}(1:9) '£º' imgs_names{i}(11:end)]);
+    disp(['download image # ' imgs_names{i}(1:9) ':' imgs_names{i}(11:end)]);
     %try
     urlwrite(imgs_names{i}(11:end),[data_folder '/' imgs_names{i}(1:9)]);
     %end
