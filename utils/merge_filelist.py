@@ -5,6 +5,8 @@ import os
 def get_file_list(src_dir):
     file_list = []
     for filename in os.listdir(src_dir):
+        if not filename.split('.')[-1] == 'txt':
+            continue
         file_list.append(filename)
         # print(filename)
     return file_list
