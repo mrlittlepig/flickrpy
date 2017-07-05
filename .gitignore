@@ -1,10 +1,8 @@
 *.iml
 *.xml
-<<<<<<< HEAD
 *.pyc
-=======
-*.iml
-*.xml
 *.asv
 *.pyd
->>>>>>> c79fb065e614b662314fc2c1a855668b5eda5a56
+*.jpg
+*.png
+*.jpeg
