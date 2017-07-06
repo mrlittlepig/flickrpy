@@ -81,7 +81,7 @@ def main(group, max_num, save_path):
 if __name__ == '__main__':
     if not os.path.exists('data'):
         os.mkdir('data')
-    max_count = 1000
-    group_id = ["1049373@N23","1430965@N20","2750200@N22","29496069@N00","58146428@N00","78663584@N00"]
+    max_count = 600
+    group_id = ["3520128@N21","3079143@N25","2891514@N24"]
     for group in group_id:
         main(group, max_count, "data/"+group+".txt")

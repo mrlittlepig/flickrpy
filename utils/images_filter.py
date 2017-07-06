@@ -174,7 +174,7 @@ def test():
     print img.shape[0]
 
 if __name__ == "__main__":
-    info = "baidu_info.txt"
-    img_dir = "baidu_images"
+    info = "last_info.txt"
+    img_dir = "last_images"
     crop_image(img_dir, info)
     #test()

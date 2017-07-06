@@ -80,6 +80,6 @@ def isfile(path):
     return 1
 
 if __name__ == "__main__":
-    img_dir = "baidu_images"
-    dst_dir = "baidu_images_rename"
+    img_dir = "last_images"
+    dst_dir = "last_rename"
     rename_images(img_dir, dst_dir, bak_end="jpg")
