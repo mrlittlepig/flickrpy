@@ -11,7 +11,7 @@ Get [here](https://www.flickr.com/services/apps/create/apply/?) to apply an API 
 [flickr.py](https://github.com/mrlittlepig/flickrpy/blob/master/flickr.py) - requires an API KEY (variable API_KEY).
 Some example scripts:
 
-[wallpaper.py](https://github.com/mrlittlepig/flickrpy/blob/master/wallpaper.py) - Generates wallpapers from photos with the given tag(s) (Requires PIL)
+[wallpaper.py](https://github.com/mrlittlepig/flickrpy/blob/master/wallpaper.py) - Generates wallpapers from photos with the given tag(s) (Requires PIL).
 
 [tags2set.py](https://github.com/mrlittlepig/flickrpy/blob/master/tags2set.py) - Creates a photoset from your photos with the given tag(s).
 
