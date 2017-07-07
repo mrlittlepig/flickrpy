@@ -7,6 +7,7 @@ from copy import move_one_file
 from copy import get_file_list
 from copy import mkdir
 from copy import isfile
+from copy import read_image_mat
 
 def read_info(info):
     infos = open(info)
@@ -169,12 +170,42 @@ def crop_image(img_dir, info):
         cv2.imwrite(vertical_crop_file_path, crop_img)
 
 
+def merge_all(src_dir):
+    phases = ["horizontal","vertical"]
+    count = 0
+    for phase in phases:
+        if phase == "horizontal":
+            HEIGHT = 600
+            WIDTH = 800
+        elif phase == "vertical":
+            HEIGHT = 800
+            WIDTH = 600
+        else:
+            print "error phase: %s" % phase
+            return
+        phase_dir = os.path.join(src_dir, phase)
+        mkdir(phase_dir)
+        string_id = ["baidu","girl","large","last","medium"]
+        for id in string_id:
+            str_name = id+"_images"
+            img_dir = os.path.join(src_dir,str_name,phase)
+            file_list = get_file_list(img_dir)
+            for img_file in file_list:
+                img_path = os.path.join(img_dir,img_file)
+                if not isfile(img_path):
+                    continue
+                count += 1
+                img = read_image_mat(img_path)
+                img = cv2.resize(img,(WIDTH,HEIGHT),interpolation=cv2.INTER_AREA)
+                dst_path = os.path.join(phase_dir,"%05d.png" % count)
+                cv2.imwrite(dst_path,img)
+                print dst_path, img.shape
+
 def test():
     img = cv2.imread("my.jpg")
     print img.shape[0]
 
 if __name__ == "__main__":
-    info = "last_info.txt"
-    img_dir = "last_images"
-    crop_image(img_dir, info)
+    src_dir = "filtered"
+    merge_all(src_dir)
     #test()
