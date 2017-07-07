@@ -5,6 +5,9 @@ This a Python library for the Flickr API.
 
 A Python wrapper and example scripts for the Flickr API. It returns nice objects that are easy to manipulate:
 
+## flickr api
+Get here[https://www.flickr.com/services/apps/create/apply/?] to apply an api key
+
 [flickr.py](https://github.com/mrlittlepig/flickrpy/blob/master/flickr.py) - requires an API KEY (variable API_KEY).
 Some example scripts:
 
