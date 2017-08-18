@@ -197,7 +197,7 @@ def merge_all(src_dir):
                 count += 1
                 img = read_image_mat(img_path)
                 img = cv2.resize(img,(WIDTH,HEIGHT),interpolation=cv2.INTER_AREA)
-                dst_path = os.path.join(phase_dir,"%05d.png" % count)
+                dst_path = os.path.join(phase_dir,"%05d.bmp" % count)
                 cv2.imwrite(dst_path,img)
                 print dst_path, img.shape
 
